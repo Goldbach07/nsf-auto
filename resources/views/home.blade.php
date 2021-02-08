@@ -11,15 +11,15 @@
   <title>Adquira seu carro através do consórcio de forma rápida e segura com taxa de 0,19%/mês</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('vendor/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template -->
-  <link href="css/landing-page.min.css" rel="stylesheet">
+  <link href="{{ asset('css/landing-page.min.css') }}" rel="stylesheet">
   <style>
     a {
       color: #dc3545;
@@ -71,7 +71,7 @@
 
     .bgland {
       display: flex;
-      background: url(../img/bg-norte.png);
+      background: url({{ asset('img/bg-norte.png') }});
       background-position: left;
       background-size: cover;
       height: 560px;
@@ -127,7 +127,7 @@
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container logus">
       <a class="navbar-brand" href="#">
-          <img class="logo" src="/img/logo.png">
+          <img class="logo" src="{{ asset('/img/logo.png') }}">
       </a>
       <div class='calldiv'>
         <span class="call-message">Central de Atendimento</span>
@@ -148,24 +148,28 @@
         </div>
 
         <div class='landform-bottom'>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label landtext">Nome</label>
-            <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
-          </div>
+          <form id="Frm_CadastrarLead">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label landtext">Telefone</label>
-            <input type="text" class="form-control" id="phone" placeholder="(00) 0000-0000">
-          </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label landtext">Nome</label>
+              <input type="text" class="form-control" name="name" placeholder="Digite seu nome" required>
+            </div>
 
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label landtext">E-mail</label>
-            <input type="email" class="form-control" id="email" placeholder="seu@email.com">
-          </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label landtext">Telefone</label>
+              <input type="text" class="form-control" name="phone" placeholder="(00) 0000-0000" required>
+            </div>
 
-          <div class="mb-3">
-            <button class="btn btn-success btn-lg landsubmit" type="button" onclick="sendMail()">SIMULAR AGORA!</button>
-          </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label landtext">E-mail</label>
+              <input type="email" class="form-control" name="email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="mb-3">
+              <button class="btn btn-success btn-lg landsubmit" type="submit" id="btn_simular">SIMULAR AGORA!</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -219,7 +223,7 @@
   <section class="showcase">
     <div class="container-fluid p-0">
       <div class="row no-gutters">
-        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/norte consorcio serviços financeiros novo onix plus-premier Hatch promoção oferta manaus.jpg');"></div>
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{{ asset('img/norte consorcio serviços financeiros novo onix plus-premier Hatch promoção oferta manaus.jpg') }}');"></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text">
           <h2>Novo Onix Rs Turbo Hatch 1.0</h2>
           <p class="lead mb-0 price">R$ 712,99 / mês</p>
@@ -230,7 +234,7 @@
         </div>
       </div>
       <div class="row no-gutters">
-        <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/norte consórcio serviços financeiros novo onix plus premier promoção oferta manaus.jpg');"></div>
+        <div class="col-lg-6 text-white showcase-img" style="background-image: url('{{ asset('img/norte consórcio serviços financeiros novo onix plus premier promoção oferta manaus.jpg') }}');"></div>
         <div class="col-lg-6 my-auto showcase-text">
           <h2>Novo Onix Plus Midnight Flex Automático</h2>
           <p class="lead mb-0 price">R$ 853,99 / mês</p>
@@ -241,7 +245,7 @@
         </div>
       </div>
       <div class="row no-gutters">
-        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/norte consórcio serviços financeiros wokswagen gol novo gol vermelho promoção oferta manaus.jpeg');"></div>
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{{ asset('img/norte consórcio serviços financeiros wokswagen gol novo gol vermelho promoção oferta manaus.jpeg') }}');"></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text">
           <h2>Novo Gol MSI 84cv Automático</h2>
           <p class="lead mb-0 price">R$ 609,99 / mês</p>
@@ -252,7 +256,7 @@
         </div>
       </div>
       <div class="row no-gutters">
-        <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/norte consórcio serviços financeiros ford ka promoção oferta manaus Ka.jpg');"></div>
+        <div class="col-lg-6 text-white showcase-img" style="background-image: url('{{ asset('img/norte consórcio serviços financeiros ford ka promoção oferta manaus Ka.jpg') }}');"></div>
         <div class="col-lg-6 my-auto showcase-text">
           <h2>Ford Ka 1.0 S TIVCT flex</h2>
           <p class="lead mb-0 price">R$ 488,99 /mês</p>
@@ -273,7 +277,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-            <img class="img-fluid mb-3" src="img/NORTE CONSORCIO MANAUS AMAZONAS CARLOS ADAMILTON FUNDADOR.jpg" alt="">
+            <img class="img-fluid mb-3" src="{{ asset('img/NORTE CONSORCIO MANAUS AMAZONAS CARLOS ADAMILTON FUNDADOR.jpg') }}" alt="">
             <h5>Carlos Adamilton</h5>
             <p class="font-weight-light mb-0">Diretor - Fundador</p>
           </div>
@@ -357,8 +361,8 @@
       </div>
     </section>
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js'></script>
     <script>
       window.onscroll = function() {
@@ -379,28 +383,39 @@
         caller.style.bottom = '-1000px';
       }
 
-      function sendMail() {
+      Frm_CadastrarLead.onsubmit = function() 
+      {
+        $.ajax
+        (
+          {
+              url: "{{ route('lead.cadastrar') }}",
+              method: 'post',
+              data: $(this).serialize(),
+              //params: $(this).serialize(),
+              dataType: "json",
+              beforeSend: function()
+              {
+                btn_simular.disabled = true;
+              },
+              success: function(response)
+              {
+                if ("message" in response)
+                {
+                  bootbox.alert(response.message);
+                }
+              },
+              error: function(error)
+              {
+                console.log(error);
+              },
+              complete: function()
+              {
+                btn_simular.disabled = false;
+              }
+          }
+        );
 
-        if (nome.value == '') {
-          nome.focus();
-          bootbox.alert("Prencha o campo nome");
-        } else if (phone.value == '') {
-          phone.focus();
-          bootbox.alert("Prencha o campo telefone");
-        } else if (email.value == '') {
-          phone.focus();
-          bootbox.alert("Prencha o campo email");
-        } else {
-          $.post("/sendLead", {
-              _token: "{{ csrf_token() }}",
-              nome: "" + nome.value,
-              phone: "" + phone.value,
-              email: "" + email.value
-            },
-            function(data, status) {
-              bootbox.alert("Cadastro Realizado! Em breve entraremos em contato!");
-            });
-        }
+        return false;
       }
       
 !function(f,b,e,v,n,t,s)

@@ -19,16 +19,4 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::post('/sendLead', [MailController::class,'send']);
-
-Route::post('/sendLeads', function (Request $request) {
-      
-    Mail::send('mail', ['user' => $request->all()], function($m) use ($request) {
-       $m->from('noreply@nortesf.com.br','Norte Serviços Financeiros');
-       $m->to('gustavoalves.a7@gmail.com');
-       $m->subject('Novo Lead');
-    });
-    
-    return 'ok';
-  
-});
+Route::post('/sendLead', [MailController::class, 'send']) -> name('lead.cadastrar');
