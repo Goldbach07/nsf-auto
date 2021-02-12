@@ -150,6 +150,7 @@
         <div class='landform-bottom'>
           <form id="Frm_CadastrarLead">
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+            <input type="hidden" name="url" value="{{ $url }}" />
 
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label landtext">Nome</label>

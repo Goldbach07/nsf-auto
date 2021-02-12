@@ -15,8 +15,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/{url?}', function ($url = null) {
+    return view('home', ['url' => $url]);
 });
 
 Route::post('/sendLead', [MailController::class, 'send']) -> name('lead.cadastrar');
