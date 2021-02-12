@@ -9,7 +9,7 @@
 </b></h3>
 
 <p>
-  <b>Nome: </b>{{$user['nome']}}
+  <b>Nome: </b>{{$user['name']}}
 </p>
 
 <p>
