@@ -154,17 +154,17 @@
 
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label landtext">Nome</label>
-              <input type="text" class="form-control" name="name" placeholder="Digite seu nome" required>
+              <input type="text" class="form-control" id="txt_nome" name="name" placeholder="Digite seu nome" required>
             </div>
 
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label landtext">Telefone</label>
-              <input type="text" class="form-control" name="phone" placeholder="(00) 0000-0000" required>
+              <input type="text" class="form-control" id="txt_telefone" name="phone" placeholder="(00) 0000-0000" required>
             </div>
 
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label landtext">E-mail</label>
-              <input type="email" class="form-control" name="email" placeholder="seu@email.com" required>
+              <input type="email" class="form-control" id="txt_email" name="email" placeholder="seu@email.com" required>
             </div>
 
             <div class="mb-3">
@@ -403,6 +403,13 @@
                 if ("message" in response)
                 {
                   bootbox.alert(response.message);
+                }
+
+                if ('success' in response && response.success)
+                {
+                  txt_nome.value = '';
+                  txt_telefone.value = '';
+                  txt_email.value = '';
                 }
               },
               error: function(error)
